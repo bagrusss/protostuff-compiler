@@ -365,10 +365,10 @@ public class MessageFieldUtil {
         } else {
             getterName = getFieldGetterName(field);
         }
-        if (field.getType().isEnum() && !field.isRepeated()) {
-            return "\"" + getFieldName(field) + "=\" + " + getterName + "() + '(' + " + getEnumFieldValueGetterName(field) + "() + ')'";
+        if (field.getType().isEnum() && !field.isRepeated() || field.getTypeName().toLowerCase().contains("string")) {
+            return "\"\\\"" + getFieldName(field) + "\\\":\\\"\" + " + getterName + "() + \'\\\"\'";
         }
-        return "\"" + getFieldName(field) + "=\" + " + getterName + "()";
+        return "\"\\\"" + getFieldName(field) + "\\\":\" + " + getterName + "()";
     }
 
     public static String protostuffReadMethod(Field field) {
