@@ -180,10 +180,15 @@ public boolean <field.javaHasMethodName>() {
 
 field_toString_part(field) ::= <<
 <if(field.repeated)>
-if (!<field.javaName>.isEmpty()) {
+if (<field.javaName>.isEmpty())
+    parts.add("\"<field.javaName>\":[]");
+else  parts.add(<field.toStringPart>);
+
 <else>
-if (<field.javaHasMethodName>()) {
+if (<field.javaHasMethodName>())
+<if(field.string)>
+    parts.add(<field.toStringString>);
+<else> parts.add(<field.toStringPart>);<endif>
+
 <endif>
-    parts.add(<field.toStringPart>);
-}
 >>

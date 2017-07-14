@@ -17,6 +17,8 @@ import io.protostuff.compiler.model.Type;
 import io.protostuff.compiler.model.UserType;
 import io.protostuff.generator.Formatter;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -369,6 +371,10 @@ public class MessageFieldUtil {
             return "\"\\\"" + getFieldName(field) + "\\\":\\\"\" + " + getterName + "() + \'\\\"\'";
         }
         return "\"\\\"" + getFieldName(field) + "\\\":\" + " + getterName + "()";
+    }
+
+    public static String toStringString(Field field) {
+        return "\"\\\"" + getFieldName(field) + "\\\":\\\"\" + " + getFieldGetterName(field) + "().replace(\"\\\"\", \"\\\\\\\"\") + \'\\\"\'";
     }
 
     public static String protostuffReadMethod(Field field) {

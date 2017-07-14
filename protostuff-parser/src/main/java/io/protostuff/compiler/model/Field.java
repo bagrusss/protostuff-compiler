@@ -121,6 +121,11 @@ public class Field extends AbstractDescriptor {
         return false;
     }
 
+    public boolean isString() {
+        return type.getName().toLowerCase().contains("string");
+    }
+
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)

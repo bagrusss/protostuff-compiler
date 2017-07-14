@@ -81,6 +81,7 @@ public class JavaExtensionProvider extends AbstractExtensionProvider {
         registerProperty(Field.class, "protostuffReadMethod", MessageFieldUtil::protostuffReadMethod);
         registerProperty(Field.class, "protostuffWriteMethod", MessageFieldUtil::protostuffWriteMethod);
         registerProperty(Field.class, "toStringPart", MessageFieldUtil::toStringPart);
+        registerProperty(Field.class, "toStringString", MessageFieldUtil::toStringString);
         registerProperty(Field.class, "javaBitFieldName", MessageFieldUtil::bitFieldName);
         registerProperty(Field.class, "javaBitFieldIndex", MessageFieldUtil::bitFieldIndex);
         registerProperty(Field.class, "javaBitFieldMask", MessageFieldUtil::bitFieldMask);
