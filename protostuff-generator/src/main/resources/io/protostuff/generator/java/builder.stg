@@ -186,7 +186,12 @@ public <field.javaType> <field.javaRepeatedGetByIndexMethodName>(int index) {
 }
 
 public <field.javaRepeatedType> <field.javaRepeatedGetterName>() {
-    return new io.protostuff.ListAdapter\<>(<field.javaName>, <field.javaType>::valueOf);
+    return new io.protostuff.ListAdapter\<>(<field.javaName>, new io.protostuff.ListAdapter.Converter\<Integer, <field.javaType>\>() {
+        @Override
+        public Size convert(Integer integer) {
+            return <field.javaType>.valueOf(integer);
+        }
+    });
 }
 
 public int <field.javaRepeatedGetCountMethodName>() {
