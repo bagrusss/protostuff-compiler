@@ -126,7 +126,7 @@ public <field.javaMapValueType> <field.javaMapGetByKeyMethodName>(<field.javaMap
 public <field.javaRepeatedType> <field.javaRepeatedGetterName>() {
     return new io.protostuff.ListAdapter\<>(<field.javaName>, new io.protostuff.ListAdapter.Converter\<Integer, <field.javaType>\>() {
          @Override
-         public Size convert(Integer integer) {
+         public <field.javaType> convert(Integer integer) {
              return <field.javaType>.valueOf(integer);
          }
     });
